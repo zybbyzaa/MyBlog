@@ -8,10 +8,12 @@ body
 {
   font: 12px "宋体",Arial,Helvetica,sans-serif;
 }
-a:link, a:visited 
-{
+a {
   text-decoration: none;
   color: #333;
+}
+:focus {
+  outline: #fff auto 5px;
 }
 ol,ul{
     list-style:none;
@@ -126,6 +128,7 @@ ol,ul{
   	box-shadow: 0 1px 0 rgba(255,255,255,.1),inset 0 1px 1px rgba(0,0,0,.7);
   	border-radius: 6px;
   	margin-top: 5px;
+  	cursor:pointer;
 }
 .btn:hover {
   opacity: .5;

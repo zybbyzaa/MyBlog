@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="~/Admin/index.aspx" title="首页"  description="Home Page">
+        <siteMapNode title="账户管理">
+            <siteMapNode url="~/Account/AccountList.aspx" title="账户列表" />
+            <siteMapNode url="~/Account/AddAccount.aspx" title="新建账户" />
+            <siteMapNode url="~/Account/AccountDetail.aspx" title="账户信息" />
+            <siteMapNode url="~/Account/UpdateAccount.aspx" title="账户信息修改" />
+            <siteMapNode url="~/Account/ChangePwd.aspx" title="密码修改" />
+        </siteMapNode>
+        <siteMapNode title="文章管理"></siteMapNode>
+        <siteMapNode title="相册管理"></siteMapNode>
+        <siteMapNode title="留言管理"></siteMapNode>
+    </siteMapNode>
+</siteMap>

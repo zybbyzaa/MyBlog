@@ -1,1 +1,94 @@
 ﻿/* 前台母版页样式 */
+#header 
+{
+  width: 1000px;
+  margin: auto;
+  height: 80px;
+  position: relative;
+  overflow: hidden;
+}
+#logo a 
+{
+  display: block;
+  width: 260px;
+  height: 60px;
+  margin: 10px 0 0 0;
+  position: absolute;
+  background: url(../Images/logo.png) no-repeat;
+  display: block;
+}
+#Menu1
+{
+    padding-left: 680px;
+    float: right;
+    width: 100%;
+}
+#Menu1 a
+{
+    font-size: 18px;
+    line-height: 40px;
+    margin: 0 5px;
+    padding: 0 8px;
+    font-family: "微软雅黑",Arial,Helvetica,sans-serif;
+}
+.menu_current
+{
+    color: #e15782;
+}
+#banner_top
+{
+    margin: auto;
+    overflow: hidden;
+}
+#sitemap_top
+{
+    margin: auto;
+    margin-bottom: 20px;
+}
+#main
+{
+    width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+#main h2.title {
+    font: 18px "微软雅黑",Arial,Helvetica,sans-serif;
+    color: #444;
+    font-weight: bold;
+    background: url(../Images/h_line.jpg) repeat-x 20px center;
+}
+#main h2.title p {
+    background: #fff;
+    width: 90px;
+}
+#main h2.title span.pink {
+    color: #fe5187;
+}
+#main_left
+{
+    width: 740px;
+    overflow: hidden;
+    background: url(../Images/r_line.jpg) repeat-y right;
+    padding: 20px 0;
+}
+#main_right
+{
+    width: 250px;
+    position: relative;
+    padding-top: 20px;
+}
+#footer {
+  text-align: center;
+  line-height: 40px;
+  border-top: #e8e8e8 1px solid;
+  width: 1000px;
+  margin: auto;
+  line-height: 40px;
+}
+#tool {
+  width: 54px;
+  float: right;
+  position: fixed;
+  right: 50px;
+  bottom: 15px;
+}

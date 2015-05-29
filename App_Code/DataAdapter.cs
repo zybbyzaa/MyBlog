@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -8,12 +9,12 @@ public class DataAdapter : IDisposable
 
     public DataAdapter()
     {
-        this.cacheConn = new SqlConnection(Config.Instance().ConnectionString);
+        this.cacheConn = new SqlConnection(ConfigurationManager.ConnectionStrings["ApplicationServices"].ConnectionString);
     }
 
-    public DataAdapter(string connStr)
+    public DataAdapter(string connStrName)
     {
-        this.cacheConn = new SqlConnection(connStr);
+        this.cacheConn = new SqlConnection(ConfigurationManager.ConnectionStrings[connStrName].ConnectionString);
     }
     #region IDisposable ≥…‘±
 
