@@ -1,0 +1,132 @@
+﻿/* 样式重置 */
+* 
+{
+    padding: 0;
+    margin: 0 0 4px 0;
+}
+body 
+{
+  font: 12px "宋体",Arial,Helvetica,sans-serif;
+}
+a:link, a:visited 
+{
+  text-decoration: none;
+  color: #333;
+}
+ol,ul{
+    list-style:none;
+}
+/* 通用类样式 */
+.left 
+{
+    float: left;
+}
+.right 
+{
+    float: right;
+}
+.text 
+{
+    line-height: 40px;
+    color: #999;
+}
+.caret-down 
+{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.caret-up 
+{
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-bottom: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.aside-title,.aside-item,.aside-link
+{
+    display: block;
+    height: 40px;
+    color: #777;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+}
+.aside-list
+{
+    display: block;
+    color: #777;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+}
+@font-face {
+	font-family: 'icomoon';
+	src:url('../Fonts/icomoon.eot?wbtzh1');
+	src:url('../Fonts/icomoon.eot?#iefixwbtzh1') format('embedded-opentype'),
+		url('../Fonts/icomoon.woff?wbtzh1') format('woff'),
+		url('../Fonts/icomoon.ttf?wbtzh1') format('truetype'),
+		url('../Fonts/icomoon.svg?wbtzh1#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.icon-home3:before {
+	content: "\e902";
+}
+.icon-bubbles:before {
+	content: "\e96c";
+}
+.icon-user:before {
+	content: "\e971";
+}
+.icon-cog:before {
+	content: "\e994";
+}
+.icon-exit:before {
+	content: "\ea14";
+}
+.icon-arrow-up:before {
+	content: "\ea32";
+}
+.btn {
+    display: block;
+	border-style: none;
+    border-color: inherit;
+    border-width: 0;
+    font-size: 32px;
+	background-color: #111;
+	color: #fff;
+	width: 54px;
+  	height: 56px;
+  	padding: 11px 12px;
+  	display: block;
+  	box-shadow: 0 1px 0 rgba(255,255,255,.1),inset 0 1px 1px rgba(0,0,0,.7);
+  	border-radius: 6px;
+  	margin-top: 5px;
+}
+.btn:hover {
+  opacity: .5;
+}
