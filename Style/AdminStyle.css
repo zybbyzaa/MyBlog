@@ -1,0 +1,63 @@
+﻿
+#header
+{
+   height: 120px;
+   background: #3b6ea5 url(../Images/logo2.jpg) no-repeat 30px;
+}
+#loginView
+{
+    height: 60px;
+    width: 240px;
+    margin-top: 30px;
+    padding: 15px 20px;
+    color: White;
+    text-align: right;
+    font-size: 14px;
+}
+#aside
+{
+    width: 200px;
+    height: 440px;
+    overflow: auto;
+    margin: 5px auto;
+    padding: 20px;
+    border-right: 1px solid #cdcdcd;
+}
+#aside .aside-title
+{    
+    color: #fff;
+    background-color: #3b6ea5;
+    padding-right: 15px;
+    cursor: pointer;
+}
+#aside .aside-list
+{
+    padding-left: 10px;
+}
+#aside .aside-item
+{
+    border-bottom: #cdcdcd 1px solid;
+}
+#aside .aside-link
+{
+    font-size: 14px;
+}
+#aside .aside-link:hover
+{
+    background-color: rgba(3,3,3,0.1);
+}
+#sitemap,#content
+{
+    width: 870px;
+    margin: 5px auto;
+    padding-left: 10px;
+}
+#footer {
+  text-align: center;
+  line-height: 40px;
+  border-top: #cdcdcd 2px solid;
+  width: 870px;
+  margin: auto;
+  line-height: 40px;
+  clear: both;
+}

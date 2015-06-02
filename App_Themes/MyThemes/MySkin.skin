@@ -17,3 +17,52 @@
 </asp:SiteMapPath>
 <asp:SiteMapPath runat="server" PathSeparator=">>" SkinId="adminSitemap" Font-Size="16px">           
 </asp:SiteMapPath>
+<asp:LoginStatus runat="server" ForeColor="White" LoginText="[登录]" LogoutText="[注销]"/>
+<asp:Login runat="server">
+    <LayoutTemplate>
+        <table style="width:100%">
+            <tr>
+                <td align="right">账号:</td>
+                <td>&nbsp;
+                    <asp:TextBox ID="UserName" runat="server" Width="180px" Height="24px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="UserName" ErrorMessage="用户名不能为空" ForeColor="Red" 
+                        SetFocusOnError="True">
+                    </asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">密码:</td>
+                <td>&nbsp;
+                    <asp:TextBox ID="Password" runat="server" TextMode="Password" Width="180px" Height="24px"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                        ControlToValidate="Password" ErrorMessage="密码不能为空" ForeColor="Red" 
+                        SetFocusOnError="True">
+                    </asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    &nbsp;
+                    <asp:CheckBox ID="RememberMe" runat="server" Text="Remeber Me" CssClass="checkbox"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="left" style="padding-top: 6px">&nbsp;&nbsp;
+                    <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="登录" />
+                    &nbsp;
+                    <input id="Reset" type="reset" value="重置" />
+                </td>
+           </tr>
+           <tr>
+                <td colspan="2" style="color:Red;font-size:14px;">
+                    <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                </td>
+           </tr>
+        </table>
+    </LayoutTemplate>
+</asp:Login>
+<asp:LinkButton runat="server" ForeColor="White" SkinID="LoginViewBtn"></asp:LinkButton>
+<asp:Button runat="server" CssClass="buttonStyle"/>

@@ -1,0 +1,103 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminPage.master.cs" Inherits="Admin_AdminPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="/MyBlog/Style/CommonStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/MyBlog/Style/AdminStyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="header">
+        <div id="loginView" class="right">
+            <asp:LoginView ID="LoginView1" runat="server">
+                <RoleGroups>
+                    <asp:RoleGroup Roles="Admin">
+                        <ContentTemplate>
+                            <div>
+                                <asp:LoginName ID="LoginName1" runat="server" FormatString="欢迎：{0}" />
+                                <asp:LoginStatus ID="LoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="/MyBlog/Pages/Manage/Login.aspx"/>
+                            </div>
+                            <div>
+                                <asp:LinkButton ID="LinkButton1" runat="server" PostBackUrl="/MyBlog/Pages/Account/AccountList.aspx" SkinID="LoginViewBtn"><span class="icon-user">[账户管理]</span></asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="/MyBlog/Pages/index.aspx" SkinID="LoginViewBtn"><span class="icon-home">[返回网站]</span></asp:LinkButton>
+                            </div>
+                        </ContentTemplate>
+                    </asp:RoleGroup>
+                </RoleGroups>
+                <AnonymousTemplate>
+                    您还没有登录！<asp:LoginStatus ID="LoginStatus3" runat="server" />
+                </AnonymousTemplate>
+            </asp:LoginView>
+        </div>
+    </div>
+    <div class="left" id="aside">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
+            SelectCommand="SELECT * FROM [treeview_RootNode]"></asp:SqlDataSource>
+        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" >
+            <ItemTemplate> 
+                <h2 class="aside-title" ><span style="margin-right: 5px;"><%#Eval("rtitle") %></span><span class="caret-down"></span></h2>
+                <ul class="aside-list">
+                    <asp:HiddenField ID="asideID" runat="server"  Value='<%#Eval("rid") %>' />
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConString %>"     
+                        SelectCommand="SELECT [l_title], [l_url] FROM [treeview_LeafNode] WHERE ([r_id] = @r_id)">
+                        <SelectParameters>
+                            <asp:ControlParameter ControlID="asideID" Name="r_id" PropertyName="Value" Type="Int32" />
+                        </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource2">
+                        <ItemTemplate>
+                            <li class="aside-item"><a href='/MyBlog/<%#Eval("l_url") %>' class="aside-link"><%#Eval("l_title") %></a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+    <div class="left" id="sitemap">
+        <asp:SiteMapPath ID="SiteMapPath1" runat="server" SkinID="adminSitemap" SiteMapProvider="adminSiteMap">          
+        </asp:SiteMapPath>
+        <hr style="margin-top: 5px;" />
+    </div>
+    <div class="left" id="content">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">          
+        </asp:ContentPlaceHolder>
+    </div>
+    <div id="footer">
+        <p>
+            Design by Zyb
+	        <a href="mailto:zybbyzaa@163.com" target="_blank">联系我</a>
+        </p>
+    </div>
+    </form>
+    <script src="/MyBlog/Script/jquery-1.11.2.min.js" type="text/javascript"></script>  
+    <script type="text/javascript">
+        function tap_click(i) {
+            $("#tab li").removeClass('on').eq(i).addClass('on');
+            $("#tabcon div").hide().eq(i).show();
+        }
+        $(function () {
+            var isShow = true;
+            $('.aside-title').click(function () {
+                if (isShow) {
+                    $(this).children(".caret-down").removeClass().addClass("caret-up");
+                    isShow = false;
+                }
+                else {
+                    $(this).children(".caret-up").removeClass().addClass("caret-down");
+                    isShow = true;
+                }
+                $(this).next().fadeToggle(500);
+            })
+            $("#tab li").each(function (i) {
+                $(this).click(function () { tap_click(i); }).hover(function () { $(this).addClass('hover'); }, function (event) { $(this).removeClass('hover'); });
+            });
+        })
+    </script> 
+</body>
+</html>

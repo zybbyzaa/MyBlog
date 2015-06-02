@@ -3,7 +3,7 @@
     <siteMapNode url="~/Pages/index.aspx" title="首页"  description="Home Page">
         <siteMapNode url="~/Pages/article.aspx" title="文章"  description="Some Articles" />
         <siteMapNode url="~/Pages/photo.aspx" title="相册"  description="My photo" />
-        <siteMapNode url="~/Pages/gustbook.aspx" title="留言板"  description="a gustbook" />
+        <siteMapNode url="~/Pages/talk.aspx" title="留言板"  description="a gustbook" />
         <siteMapNode url="~/Pages/about.aspx" title="关于"  description="about my website" />
     </siteMapNode>
 </siteMap>

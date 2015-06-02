@@ -16,7 +16,7 @@
         <div id="logo">
             <a href="/MyBlog/Pages/index.aspx"></a>
         </div>
-            <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal"
+            <asp:Menu ID="Menu" runat="server" Orientation="Horizontal"
                 RenderingMode="List">
                 <Items>
                     <asp:MenuItem NavigateUrl="/MyBlog/Pages/index.aspx" Text="首页" Value="首页">
@@ -69,24 +69,30 @@
             <button class="btn" runat="server" ID="gotoBack" title="返回后台"><span class="icon-cog"></span></button>
         </div>
     </div>
+    <div id="mask" class="mask"></div>
     </form>
     <script src="/MyBlog/Script/jquery-1.11.2.min.js" type="text/javascript"></script>  
     <script type="text/javascript">
+        function showMask() {
+            $("#mask").css("height", $(document).height());
+            $("#mask").css("width", $(document).width());
+            $("#mask").show();
+        }
         $(function () {
             $(function () {
                 //高亮当前页导航
                 var url = document.URL; //取得当前页的URL
                 if (/article/.test(url.toLowerCase())) {
-                    $("#Menu1 a:eq(1)").addClass("menu_current");
+                    $("#Menu a:eq(1)").addClass("menu_current");
                 } else if (/photo/.test(url.toLowerCase())) {
-                    $("#Menu1 a:eq(2)").addClass("menu_current");
+                    $("#Menu a:eq(2)").addClass("menu_current");
                 } else if (/talk/.test(url.toLowerCase())) {
-                    $("#Menu1 a:eq(3)").addClass("menu_current");
+                    $("#Menu a:eq(3)").addClass("menu_current");
                 } else if (/about/.test(url.toLowerCase())) {
-                    $("#Menu1 a:eq(4)").addClass("menu_current");
+                    $("#Menu a:eq(4)").addClass("menu_current");
                 }
                 else
-                    $("#Menu1 a:eq(0)").addClass("menu_current");
+                    $("#Menu a:eq(0)").addClass("menu_current");
                 //隐藏跳转链接
                 //当滚动条的位置处于距顶部300像素以下时，跳转链接出现，否则消失
                 $(window).scroll(function () {
@@ -109,8 +115,18 @@
                 });
                 //当点击管理链接后，跳转到后台管理页
                 $("#gotoBack").click(function () {
-                    location.href = "/MyBlog/Pages/talk.aspx";
+                    location.href = "/MyBlog/Pages/Manage/Login.aspx";
                     return false;
+                });
+                //
+                $(".reply-link").each(function (i) {
+                    $(this).click(function () {
+                        showMask();
+                        $(".reply-box").animate({
+                            left: '50%'
+                        });
+                        return false;
+                    });
                 });
             });
         });

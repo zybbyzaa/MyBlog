@@ -17,13 +17,13 @@
   background: url(../Images/logo.png) no-repeat;
   display: block;
 }
-#Menu1
+#Menu
 {
     padding-left: 680px;
     float: right;
     width: 100%;
 }
-#Menu1 a
+#Menu a
 {
     font-size: 18px;
     line-height: 40px;

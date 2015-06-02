@@ -21,10 +21,12 @@ ol,ul{
 /* 通用类样式 */
 .left 
 {
+    display: block;
     float: left;
 }
 .right 
 {
+    display: block;
     float: right;
 }
 .text 
@@ -95,7 +97,7 @@ ol,ul{
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.icon-home3:before {
+.icon-home:before {
 	content: "\e902";
 }
 .icon-bubbles:before {
@@ -133,3 +135,11 @@ ol,ul{
 .btn:hover {
   opacity: .5;
 }
+.mask {    
+   position: absolute; 
+   top: 0px; 
+   filter: alpha(opacity=60); 
+   background-color: #777;  
+   z-index: 1002; left: 0px;  
+   opacity:0.5; -moz-opacity:0.5;  
+}  
