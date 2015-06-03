@@ -50,6 +50,8 @@
             </p>
         </h2>
         <div id="main_left" class="left">
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
             <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">        
             </asp:ContentPlaceHolder>
         </div>
@@ -121,11 +123,22 @@
                 //
                 $(".reply-link").each(function (i) {
                     $(this).click(function () {
+                        var name = $(".user-name").eq(i).text();
+                        $(".reply-name").text(name);
+                        $("input[type=hidden]").val(name);
                         showMask();
                         $(".reply-box").animate({
                             left: '50%'
                         });
                         return false;
+                    });
+                });
+                $(".close").click(function () {
+                    $("#mask").css("height", 0);
+                    $("#mask").css("width", 0);
+                    $("#mask").hide();
+                    $(".reply-box").animate({
+                        left: '-50%'
                     });
                 });
             });

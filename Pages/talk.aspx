@@ -72,6 +72,10 @@
 	        z-index: 2000;
 	        background-color: #ccc;
         }
+        .reply-name
+        {
+            color: #d32;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -109,27 +113,39 @@
             </div>
         </ItemTemplate>
     </asp:ListView>
-    <div class="comment-edit-box">
-        <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
-                        TextMode="MultiLine" Width="680px"></asp:TextBox>
-        <asp:HiddenField ID="HiddenField1" runat="server" />
-        <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
-            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-            Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
-        <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
-    </div>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <div class="comment-edit-box">
+                <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
+                                TextMode="MultiLine" Width="680px"></asp:TextBox>
+                <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
+                    ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+                    Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
+                <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
     <div class="comment-edit-box reply-box">
-        <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
-        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-        <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
-                        TextMode="MultiLine" Width="680px"></asp:TextBox>
-        <asp:HiddenField ID="HiddenField2" runat="server" />
-        <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
-            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-            Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
-        <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>
+        <div>
+            <span>回复：</span>
+            <span Class="reply-name"></span>
+            <button class="close" onclick="return false"><span>x</span></button>        
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>                
+                        <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
+                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
+                                        TextMode="MultiLine" Width="680px"></asp:TextBox>
+                        <asp:HiddenField ID="HiddenField1" runat="server"/>
+                        <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
+                            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+                            Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
+                        <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        </div>
     </div>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder4" Runat="Server">
