@@ -34,16 +34,18 @@
     <span class="right text">像“草根”一样，紧贴着地面，低调的存在，冬去春来，枯荣无恙。</span>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
-    <h2>About my blog</h2>
-    <p>应用名：MyBlog </p>
-    <p>程序：Asp.net 3.5 </p>
-    <p>作者：张源滨 </p>
-    <p>开始时间：2015-05-09 </p>
-    <p>结束时间： </p>
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder4" Runat="Server">
-     <p>扣扣：<span>532394460</span> </p>    
-     <p>姓名：张源滨 </p>       
-     <p>学号：3112002836 </p>
-     <p>班级：电信4班 </p>                
+    <div id="main_left" class="left">
+        <h2>About my blog</h2>
+        <p>应用名：MyBlog </p>
+        <p>程序：Asp.net 3.5 </p>
+        <p>作者：张源滨 </p>
+        <p>开始时间：2015-05-09 </p>
+        <p>结束时间： </p>        
+    </div>
+    <div id="main_right" class="right">
+        <p>扣扣：<span>532394460</span> </p>    
+        <p>姓名：张源滨 </p>       
+        <p>学号：3112002836 </p>
+        <p>班级：电信4班 </p>        
+    </div>   
 </asp:Content>

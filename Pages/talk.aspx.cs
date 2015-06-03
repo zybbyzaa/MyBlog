@@ -16,8 +16,6 @@ public partial class Pages_talk : System.Web.UI.Page
         {
             TextBox1.ReadOnly = true;
             TextBox1.Text = User.Identity.Name;
-            TextBox3.ReadOnly = true;
-            TextBox3.Text = User.Identity.Name;
         }
     }
     protected void Button1_Click(object sender, EventArgs e)
@@ -45,36 +43,6 @@ public partial class Pages_talk : System.Web.UI.Page
         if (da.ExecuteSqlNoQuery(sqlStr) == 0)
         {
             FailureText.Text = "发布失败";
-            return;
-        }
-        Response.Redirect("talk.aspx");
-    }
-    protected void Button2_Click(object sender, EventArgs e)
-    {
-        string name = TextBox3.Text;
-        string comment = TextBox4.Text;
-        if (name == "")
-        {
-            Literal1.Text = "昵称不能为空";
-            return;
-        }
-        if (comment == "")
-        {
-            Literal1.Text = "内容不能为空";
-            return;
-        }
-        else if (comment.Length > 200)
-        {
-            Literal1.Text = "输入字符超过200个";
-            return;
-        }
-        string rname = HiddenField1.Value;
-        string datenow = DateTime.Now.ToString();
-        string sqlStr = "insert into talk(username,talk,replytime,isreply,replyname) values('" + name + "','" + comment + "','" + datenow + "',1,'" + rname + "')";
-        DataAdapter da = new DataAdapter("BlogConString");
-        if (da.ExecuteSqlNoQuery(sqlStr) == 0)
-        {
-            Literal1.Text = "发布失败";
             return;
         }
         Response.Redirect("talk.aspx");

@@ -49,14 +49,10 @@
                 </span>
             </p>
         </h2>
-        <div id="main_left" class="left">
-            <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">        
-            </asp:ContentPlaceHolder>
-        </div>
-        <div id="main_right" class="right">
-            <asp:ContentPlaceHolder id="ContentPlaceHolder4" runat="server">        
-            </asp:ContentPlaceHolder>
-        </div>
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">        
+        </asp:ContentPlaceHolder>
     </div>
     <div id="footer">
         <p>
@@ -112,16 +108,6 @@
                 $("#gotoBack").click(function () {
                     location.href = "/MyBlog/Pages/Manage/Login.aspx";
                     return false;
-                });
-                //
-                $(".reply-link").each(function (i) {
-                    $(this).click(function () {
-                        var name = $(".user-name").eq(i).text();
-                        $(".reply-name").text(name);
-                        $("input[type=hidden]").val(name);
-                        $('body,html').animate({ scrollTop: 400 }, 200);
-                        return false;
-                    });
                 });
             });
         });

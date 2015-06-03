@@ -4,7 +4,7 @@
     <style>
         .comment-box > span
         {
-            margin-left: 260px;
+            margin-left: 230px;
         }
         .comment
         {
@@ -26,12 +26,12 @@
         }
         .comment-body
         {
-            margin: 6px 0;
+            margin: 4px 0;
             padding-left:5px;
             font-size: 13px;
             line-height: 1.5em;
         }
-        .comment-body .reply-object
+        .comment-body .reply-name
         {
             color: #e77064;
         }
@@ -59,23 +59,14 @@
             padding-top: 10px;
             padding-left:20px;
         }
-        .reply-box
+        .reply
         {
-            display: none;
-            position: absolute;
-            left: 50%;
-	        top: 50%;
-	        -webkit-transform: translate(-50%, -50%) ;
-	        -moz-transform: translate(-50%, -50%) ;
-	        -ms-transform: translate(-50%, -50%) ;
-	        -o-transform: translate(-50%, -50%) ;
-	        transform: translate(-50%, -50%) ;
-	        z-index: 2000;
-	        background-color: #ccc;
-        }
-        .reply-name
-        {
-            color: #d32;
+            width:650px;
+            padding: 10px;
+            margin: auto;
+            background-color: #CCFFCC;
+            border-radius: 10px;
+            border: solid 1px #66CCCC;
         }
     </style>
 </asp:Content>
@@ -86,60 +77,90 @@
     </asp:SiteMapPath>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+    <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" 
         ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
-        SelectCommand="SELECT * FROM [talk]"></asp:SqlDataSource>
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" ItemContainerID= "ItemPlaceHolder">
-        <LayoutTemplate>
-            <div class="comment-box">
-            <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
-            <asp:DataPager runat="server" ID="ContactsDataPager" PageSize="5">    
-                <Fields>    
-                <asp:NextPreviousPagerField ShowFirstPageButton="true" ShowLastPageButton="true"    
-                FirstPageText="首页" LastPageText="尾页"  NextPageText="下一页" PreviousPageText="上一页"/>    
-                </Fields>   
-            </asp:DataPager>
-            </div>
-        </LayoutTemplate>
-        <ItemTemplate>
-            <div class="comment">
-                <div class="comment-header"><span class="user-name"><%# Eval("username") %></span></div>
-                <p class="comment-body">                               
-                    <span class="reply-object">
-                        <asp:PlaceHolder ID="PlaceHolder1"  runat="server" Visible='<%# Eval("isreply") %>'>回复&nbsp;<%# Eval("replyname")%>：</asp:PlaceHolder>
-                    </span>
-                    <%# Eval("talk") %>
-                </p>
-                <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span><a href="" class="reply-link">回复</a></div>
-            </div>
-        </ItemTemplate>
-    </asp:ListView>
-    <div class="comment-edit-box">
-        <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-        <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
-                        TextMode="MultiLine" Width="680px"></asp:TextBox>
-        <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
-            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-            Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
-        <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
+        SelectCommand="SELECT reply.r_id, reply.username, reply.reply, reply.replytime, reply.tl_id, talk.username AS replyname FROM reply INNER JOIN talk ON reply.tl_id = talk.t_id WHERE (reply.tl_id = 1)"></asp:SqlDataSource>--%>
+    <div style="margin: 0 auto;width:700px;">        
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
+            SelectCommand="SELECT * FROM [talk]"></asp:SqlDataSource>
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" ItemContainerID= "ItemPlaceHolder">
+            <LayoutTemplate>
+                <div class="comment-box">
+                <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
+                <asp:DataPager runat="server" ID="pager" PagedControlID="ListView1" PageSize="10">
+                    <Fields>
+                        <asp:NextPreviousPagerField FirstPageText="首页" PreviousPageText="上一页" NextPageText="下一页" ButtonType="Button" ButtonCssClass="button"
+                            LastPageText="尾页" ShowFirstPageButton="true" ShowLastPageButton="true" ShowNextPageButton="true" ShowPreviousPageButton="true" />
+                    </Fields>
+                </asp:DataPager>
+                </div>
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div class="comment">                   
+                    <div class="comment-header"><span class="user-name"><%# Eval("username") %></span></div>
+                    <p class="comment-body">                               
+                        <%# Eval("talk") %>
+                    </p>
+                    <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span></div>
+                    <asp:HiddenField ID="cmID" runat="server"  Value='<%#Eval("t_id") %>' />
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
+                        ConnectionString="<%$ ConnectionStrings:BlogConString %>"                        
+                        SelectCommand="SELECT reply.r_id, reply.username, reply.reply, reply.replytime, reply.tl_id, talk.username AS replyname FROM reply INNER JOIN talk ON reply.tl_id = talk.t_id WHERE (reply.tl_id = @tl_id)">
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="cmID" Name="tl_id" 
+                            PropertyName="Value" Type="Int32" />
+                    </SelectParameters>
+                    </asp:SqlDataSource>
+                    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource2">
+                    <ItemTemplate>
+                        <div class="reply">
+                        <div class="comment-header">
+                            <span class="user-name"><%# Eval("username") %></span>                  
+                        </div>
+                        <p class="comment-body">                               
+                            <span class="reply-name">回复：<%# Eval("replyname")%>&nbsp;</span><%# Eval("reply") %>
+                        </p>
+                        <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span></div>  
+                    </div>
+                    </ItemTemplate>
+                    </asp:Repeater>
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="comment-edit-box"> 
+                    <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
+                                    TextMode="MultiLine" Width="680px"></asp:TextBox>
+                    <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
+                        ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+                        Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
+                    <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
+                </div>            
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>
-    <div class="comment-edit-box">
-        <div>
-            <span>回复：</span>
-            <span Class="reply-name"></span><br />                   
-            <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-            <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
-                            TextMode="MultiLine" Width="680px"></asp:TextBox>
-            <asp:HiddenField ID="HiddenField1" runat="server"/>
-            <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
-                ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-                Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
-            <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
+    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
+        <ContentTemplate>
+        <div class="comment-edit-box" id="rp" style="display:none">
+            <div>
+                <span>回复：</span>
+                <span Class="reply-name"></span><br />                   
+                <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
+                                TextMode="MultiLine" Width="680px"></asp:TextBox>
+                <asp:HiddenField ID="HiddenField1" runat="server"/>
+                <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
+                    ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+                    Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
+                <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
+            </div>
         </div>
-    </div>
-</asp:Content>
-<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder4" Runat="Server">
+        </ContentTemplate>
+    </asp:UpdatePanel>--%>
 </asp:Content>
 
