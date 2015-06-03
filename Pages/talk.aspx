@@ -61,8 +61,9 @@
         }
         .reply-box
         {
+            display: none;
             position: absolute;
-            left: -50%;
+            left: 50%;
 	        top: 50%;
 	        -webkit-transform: translate(-50%, -50%) ;
 	        -moz-transform: translate(-50%, -50%) ;
@@ -113,38 +114,29 @@
             </div>
         </ItemTemplate>
     </asp:ListView>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
-        <ContentTemplate>
-            <div class="comment-edit-box">
-                <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
-                                TextMode="MultiLine" Width="680px"></asp:TextBox>
-                <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
-                    ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-                    Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
-                <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
-    <div class="comment-edit-box reply-box">
+    <div class="comment-edit-box">
+        <asp:Label ID="Label1" runat="server" Text="Label">你的昵称：</asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:TextBox ID="TextBox2" runat="server" MaxLength="200" Rows="4" 
+                        TextMode="MultiLine" Width="680px"></asp:TextBox>
+        <asp:Button ID="Button1" runat="server" Text="发布" BackColor="#E6E6E6"
+            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+            Font-Size="14px" Height="32px" Width="100px" onclick="Button1_Click" AutoPostBack="false"/> 
+        <div style="color:Red;font-size:14px;"><asp:Literal ID="FailureText" runat="server"></asp:Literal></div>
+    </div>
+    <div class="comment-edit-box">
         <div>
             <span>回复：</span>
-            <span Class="reply-name"></span>
-            <button class="close" onclick="return false"><span>x</span></button>        
-            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                <ContentTemplate>                
-                        <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
-                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                        <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
-                                        TextMode="MultiLine" Width="680px"></asp:TextBox>
-                        <asp:HiddenField ID="HiddenField1" runat="server"/>
-                        <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
-                            ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-                            Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
-                        <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
-                </ContentTemplate>
-            </asp:UpdatePanel>
+            <span Class="reply-name"></span><br />                   
+            <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
+                            TextMode="MultiLine" Width="680px"></asp:TextBox>
+            <asp:HiddenField ID="HiddenField1" runat="server"/>
+            <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
+                ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
+                Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
+            <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
         </div>
     </div>
 </asp:Content>

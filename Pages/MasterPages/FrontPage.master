@@ -50,8 +50,6 @@
             </p>
         </h2>
         <div id="main_left" class="left">
-            <asp:ScriptManager ID="ScriptManager1" runat="server">
-            </asp:ScriptManager>
             <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">        
             </asp:ContentPlaceHolder>
         </div>
@@ -75,11 +73,6 @@
     </form>
     <script src="/MyBlog/Script/jquery-1.11.2.min.js" type="text/javascript"></script>  
     <script type="text/javascript">
-        function showMask() {
-            $("#mask").css("height", $(document).height());
-            $("#mask").css("width", $(document).width());
-            $("#mask").show();
-        }
         $(function () {
             $(function () {
                 //高亮当前页导航
@@ -126,19 +119,8 @@
                         var name = $(".user-name").eq(i).text();
                         $(".reply-name").text(name);
                         $("input[type=hidden]").val(name);
-                        showMask();
-                        $(".reply-box").animate({
-                            left: '50%'
-                        });
+                        $('body,html').animate({ scrollTop: 400 }, 200);
                         return false;
-                    });
-                });
-                $(".close").click(function () {
-                    $("#mask").css("height", 0);
-                    $("#mask").css("width", 0);
-                    $("#mask").hide();
-                    $(".reply-box").animate({
-                        left: '-50%'
                     });
                 });
             });
