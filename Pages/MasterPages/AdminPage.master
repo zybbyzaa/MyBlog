@@ -30,7 +30,7 @@
                     </asp:RoleGroup>
                 </RoleGroups>
                 <AnonymousTemplate>
-                    您还没有登录！<asp:LoginStatus ID="LoginStatus3" runat="server" />
+                    您还没有登录！<asp:LoginStatus ID="LoginStatus3" runat="server"/>
                 </AnonymousTemplate>
             </asp:LoginView>
         </div>
@@ -65,6 +65,8 @@
         <hr style="margin-top: 5px;" />
     </div>
     <div class="left" id="content">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">          
         </asp:ContentPlaceHolder>
     </div>
@@ -81,19 +83,19 @@
             $("#tab li").removeClass('on').eq(i).addClass('on');
             $("#tabcon div").hide().eq(i).show();
         }
+        function clock() {
+            var time = new Date();
+            $("#clock").text(time);
+        }
         $(function () {
-            var isShow = true;
-            $('.aside-title').click(function () {
-                if (isShow) {
-                    $(this).children(".caret-down").removeClass().addClass("caret-up");
-                    isShow = false;
-                }
-                else {
-                    $(this).children(".caret-up").removeClass().addClass("caret-down");
-                    isShow = true;
-                }
-                $(this).next().fadeToggle(500);
-            })
+            $('.aside-title').each(function (i) {
+                $(this).click(function () {
+                    if ($(this).children("span").hasClass("caret-left"))
+                        $(this).children(".caret-left").removeClass().addClass("caret-down");
+                    else
+                        $(this).children(".caret-down").removeClass().addClass("caret-left");
+                    $(this).next().fadeToggle(500); });
+            });
             $("#tab li").each(function (i) {
                 $(this).click(function () { tap_click(i); }).hover(function () { $(this).addClass('hover'); }, function (event) { $(this).removeClass('hover'); });
             });

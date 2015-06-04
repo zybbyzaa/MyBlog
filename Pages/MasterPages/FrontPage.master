@@ -106,7 +106,7 @@
                 });
                 //当点击管理链接后，跳转到后台管理页
                 $("#gotoBack").click(function () {
-                    location.href = "/MyBlog/Pages/Manage/Login.aspx";
+                    location.href = "/MyBlog/Pages/Manage/index.aspx";
                     return false;
                 });
             });

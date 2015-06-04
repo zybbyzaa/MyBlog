@@ -9,6 +9,10 @@
         </siteMapNode>
         <siteMapNode title="文章管理"></siteMapNode>
         <siteMapNode title="相册管理"></siteMapNode>
-        <siteMapNode title="留言管理"></siteMapNode>
+        <siteMapNode title="留言管理">
+            <siteMapNode url="~/Pages/Manage/TalkList.aspx" title="查看留言" />
+            <siteMapNode url="~/Pages/Manage/ReplyList.aspx" title="查看回复" />
+            <siteMapNode url="~/Pages/Manage/Reply.aspx" title="发表回复" />
+        </siteMapNode>
     </siteMapNode>
 </siteMap>

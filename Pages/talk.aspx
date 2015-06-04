@@ -77,9 +77,6 @@
     </asp:SiteMapPath>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder3" Runat="Server">
-    <%--<asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
-        SelectCommand="SELECT reply.r_id, reply.username, reply.reply, reply.replytime, reply.tl_id, talk.username AS replyname FROM reply INNER JOIN talk ON reply.tl_id = talk.t_id WHERE (reply.tl_id = 1)"></asp:SqlDataSource>--%>
     <div style="margin: 0 auto;width:700px;">        
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
             ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
@@ -88,7 +85,7 @@
             <LayoutTemplate>
                 <div class="comment-box">
                 <asp:PlaceHolder runat="server" ID="ItemPlaceHolder"></asp:PlaceHolder>
-                <asp:DataPager runat="server" ID="pager" PagedControlID="ListView1" PageSize="10">
+                <asp:DataPager runat="server" ID="pager" PagedControlID="ListView1" PageSize="5">
                     <Fields>
                         <asp:NextPreviousPagerField FirstPageText="首页" PreviousPageText="上一页" NextPageText="下一页" ButtonType="Button" ButtonCssClass="button"
                             LastPageText="尾页" ShowFirstPageButton="true" ShowLastPageButton="true" ShowNextPageButton="true" ShowPreviousPageButton="true" />
@@ -122,7 +119,7 @@
                             <span class="reply-name">回复：<%# Eval("replyname")%>&nbsp;</span><%# Eval("reply") %>
                         </p>
                         <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span></div>  
-                    </div>
+                        </div>
                     </ItemTemplate>
                     </asp:Repeater>
                 </div>
@@ -143,24 +140,5 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </div>
-    <%--<asp:UpdatePanel ID="UpdatePanel2" runat="server">
-        <ContentTemplate>
-        <div class="comment-edit-box" id="rp" style="display:none">
-            <div>
-                <span>回复：</span>
-                <span Class="reply-name"></span><br />                   
-                <asp:Label ID="Label2" runat="server" Text="Label">你的昵称：</asp:Label>
-                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                <asp:TextBox ID="TextBox4" runat="server" MaxLength="200" Rows="4" 
-                                TextMode="MultiLine" Width="680px"></asp:TextBox>
-                <asp:HiddenField ID="HiddenField1" runat="server"/>
-                <asp:Button ID="Button2" runat="server" Text="发布" BackColor="#E6E6E6"
-                    ForeColor="#555555" BorderColor="#cccccc" BorderStyle="Solid" BorderWidth="1px" 
-                    Font-Size="14px" Height="32px" Width="100px" onclick="Button2_Click"/> 
-                <div style="color:Red;font-size:14px;"><asp:Literal ID="Literal1" runat="server"></asp:Literal></div>           
-            </div>
-        </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>--%>
 </asp:Content>
 
