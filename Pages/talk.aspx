@@ -23,31 +23,22 @@
         {
             color: #d32;
             font-size: 13px;
+            font-weight: 700;
         }
         .comment-body
         {
             margin: 4px 0;
             padding-left:5px;
-            font-size: 13px;
+            font-size: 16px;
             line-height: 1.5em;
         }
         .comment-body .reply-name
         {
             color: #e77064;
         }
-        .comment-footer
-        {
-            padding-left:5px;
-            line-height: 20px;
-            color: #999;
-        }
-        .comment-footer > a
-        {
-            color: #999;
-        }
         .comment-date
         {
-            margin-right: 8px;
+            margin-left: 5px;
             color: #999;
         }
         .comment-edit-box
@@ -95,11 +86,13 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <div class="comment">                   
-                    <div class="comment-header"><span class="user-name"><%# Eval("username") %></span></div>
+                    <div class="comment-header">
+                        <span class="user-name"><%# Eval("username") %></span>
+                        <span class="comment-date"><%# Eval("replytime")%></span>
+                    </div>
                     <p class="comment-body">                               
                         <%# Eval("talk") %>
                     </p>
-                    <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span></div>
                     <asp:HiddenField ID="cmID" runat="server"  Value='<%#Eval("t_id") %>' />
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" 
                         ConnectionString="<%$ ConnectionStrings:BlogConString %>"                        
@@ -113,12 +106,12 @@
                     <ItemTemplate>
                         <div class="reply">
                         <div class="comment-header">
-                            <span class="user-name"><%# Eval("username") %></span>                  
+                            <span class="user-name"><%# Eval("username") %></span>
+                            <span class="comment-date"><%# Eval("replytime")%></span>                  
                         </div>
                         <p class="comment-body">                               
                             <span class="reply-name">回复：<%# Eval("replyname")%>&nbsp;</span><%# Eval("reply") %>
                         </p>
-                        <div class="comment-footer"><span class="comment-date"><%# Eval("replytime")%></span></div>  
                         </div>
                     </ItemTemplate>
                     </asp:Repeater>
