@@ -81,7 +81,7 @@
     <script type="text/javascript">
         function tap_click(i) {
             $("#tab li").removeClass('on').eq(i).addClass('on');
-            $("#tabcon div").hide().eq(i).show();
+            $("#tabcon > div").hide().eq(i).show();
         }
         function clock() {
             var time = new Date();

@@ -47,4 +47,20 @@ public partial class Pages_Account_AccountList : System.Web.UI.Page
         GridView1.DataSource = ds.Tables[0].DefaultView;
         GridView1.DataBind();
     }
+    protected void SearchButton_Click(object sender, EventArgs e)
+    {
+        string sql = "SELECT [UserId], [Email], [PasswordQuestion], [IsLockedOut], [CreateDate], [LastLoginDate], [UserName] FROM [vw_aspnet_MembershipUsers]";
+        if (SearchText.Text == "")
+        {
+            Response.Write("<script>alert('账户名不能为空！')</script>");
+        }
+        else
+        {
+            sql += " where [UserName]='" + SearchText.Text.Trim()+ "'";
+            DataAdapter da = new DataAdapter("ApplicationServices");
+            DataSet ds = da.ExcuteDataSet(sql);
+            GridView1.DataSource = ds.Tables[0].DefaultView;
+            GridView1.DataBind();
+        }
+    }
 }

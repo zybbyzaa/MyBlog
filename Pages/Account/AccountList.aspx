@@ -4,6 +4,13 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div style="width:700px;margin: 20px auto;">
+        <div>
+            <asp:Label ID="SearchLabel" runat="server" Text="Label" AssociatedControlID="SearchText">账户名：</asp:Label>
+            <asp:TextBox ID="SearchText" runat="server"></asp:TextBox>
+            <asp:Button ID="SearchButton" runat="server" Text="查找" 
+                onclick="SearchButton_Click" />
+        </div>
+        
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" CellPadding="4" DataKeyNames="UserName" 
             ForeColor="#333333" GridLines="None" 
             AutoGenerateColumns="False" Width="700px" Font-Size="12px"
