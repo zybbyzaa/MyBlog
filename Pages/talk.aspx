@@ -88,7 +88,7 @@
                 <div class="comment">                   
                     <div class="comment-header">
                         <span class="user-name"><%# Eval("username") %></span>
-                        <span class="comment-date"><%# Eval("replytime")%></span>
+                        <span class="comment-date"><%# formatDate(Eval("replytime").ToString())%></span>
                     </div>
                     <p class="comment-body">                               
                         <%# Eval("talk") %>
@@ -107,7 +107,7 @@
                         <div class="reply">
                         <div class="comment-header">
                             <span class="user-name"><%# Eval("username") %></span>
-                            <span class="comment-date"><%# Eval("replytime")%></span>                  
+                            <span class="comment-date"><%# formatDate(Eval("replytime").ToString())%></span>                  
                         </div>
                         <p class="comment-body">                               
                             <span class="reply-name">回复：<%# Eval("replyname")%>&nbsp;</span><%# Eval("reply") %>

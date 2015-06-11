@@ -41,7 +41,7 @@
             SelectCommand="SELECT * FROM [treeview_RootNode]"></asp:SqlDataSource>
         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1" >
             <ItemTemplate> 
-                <h2 class="aside-title" ><span style="margin-right: 5px;"><%#Eval("rtitle") %></span><span class="caret-down"></span></h2>
+                <h2 class="aside-title" ><span style="margin-right: 5px;"><%#Eval("rtitle") %></span><span class="caret-left"></span></h2>
                 <ul class="aside-list">
                     <asp:HiddenField ID="asideID" runat="server"  Value='<%#Eval("rid") %>' />
                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:BlogConString %>"     
@@ -89,12 +89,14 @@
         }
         $(function () {
             $('.aside-title').each(function (i) {
+                $(this).next().hide();
                 $(this).click(function () {
                     if ($(this).children("span").hasClass("caret-left"))
                         $(this).children(".caret-left").removeClass().addClass("caret-down");
                     else
                         $(this).children(".caret-down").removeClass().addClass("caret-left");
-                    $(this).next().fadeToggle(500); });
+                    $(this).next().fadeToggle(500);
+                });
             });
             $("#tab li").each(function (i) {
                 $(this).click(function () { tap_click(i); }).hover(function () { $(this).addClass('hover'); }, function (event) { $(this).removeClass('hover'); });

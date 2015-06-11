@@ -47,4 +47,23 @@ public partial class Pages_talk : System.Web.UI.Page
         }
         Response.Redirect("talk.aspx");
     }
+    public string formatDate(string date)
+    {
+        string str = "";
+        DateTime startTime=Convert.ToDateTime(date);
+        DateTime endTime = DateTime.Now;
+        TimeSpan ts = endTime - startTime;
+        double sec = ts.TotalSeconds;
+        if (sec < 60)
+            str = "刚刚";
+        else if (sec < 60 * 60)
+            str = Math.Floor(ts.TotalMinutes) + "分钟前";
+        else if (sec < 60 * 60 * 24)
+            str = Math.Floor(ts.TotalHours) + "小时前";
+        else if (sec < 60 * 60 * 24 * 30)
+            str = Math.Floor(ts.TotalDays) + "天前";
+        else
+            str = "一个月前";
+        return str;
+    }
 }

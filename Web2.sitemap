@@ -4,11 +4,14 @@
         <siteMapNode title="账户管理">
             <siteMapNode url="~/Pages/Account/AccountList.aspx" title="账户列表" />
             <siteMapNode url="~/Pages/Account/AddAccount.aspx" title="新建账户" />
-            <siteMapNode url="~/Pages/Account/AccountDetail.aspx" title="个人信息" />
+            <siteMapNode url="~/Pages/Account/DetailInfo.aspx" title="个人信息" />
             <siteMapNode url="~/Pages/Account/ChangeInfo.aspx" title="信息修改" />
         </siteMapNode>
         <siteMapNode title="文章管理"></siteMapNode>
-        <siteMapNode title="相册管理"></siteMapNode>
+        <siteMapNode title="相册管理">
+            <siteMapNode url="~/Pages/Manage/PhotoList.aspx" title="查看相册" />
+            <siteMapNode url="~/Pages/Manage/UploadPhoto.aspx" title="上传图片" />
+        </siteMapNode>
         <siteMapNode title="留言管理">
             <siteMapNode url="~/Pages/Manage/TalkList.aspx" title="查看留言" />
             <siteMapNode url="~/Pages/Manage/ReplyList.aspx" title="查看回复" />
