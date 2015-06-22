@@ -63,7 +63,7 @@ public partial class Pages_talk : System.Web.UI.Page
         else if (sec < 60 * 60 * 24 * 30)
             str = Math.Floor(ts.TotalDays) + "天前";
         else
-            str = "一个月前";
+            str = date;
         return str;
     }
 }

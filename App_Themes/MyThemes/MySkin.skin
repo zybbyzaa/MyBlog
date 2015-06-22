@@ -65,4 +65,5 @@
     </LayoutTemplate>
 </asp:Login>
 <asp:LinkButton runat="server" ForeColor="White" SkinID="LoginViewBtn"></asp:LinkButton>
+<asp:LinkButton runat="server" SkinID="FormViewBtn" CssClass="buttonStyle"></asp:LinkButton>
 <asp:Button runat="server" CssClass="buttonStyle"/>

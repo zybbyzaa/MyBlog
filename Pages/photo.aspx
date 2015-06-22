@@ -5,7 +5,7 @@
         .grid
         {
             width: 164px;
-            min-height: 100px;
+            height: 270px;
             padding: 10px;
             background: #fff;
             margin: 8px 8px 8px 0;
@@ -21,9 +21,9 @@
         }
         .grid .imgholder img {
             max-width: 100%;
+            max-height: 220px;
             background: #ccc;
             display: block;
-            background: url(../Images/loding.gif) no-repeat center;
             cursor: pointer;
         }
         .grid hr
@@ -35,6 +35,60 @@
             color: #756f71;
             word-wrap:break-word; 
             word-break:normal;
+        }
+        .popup-bigic {
+	        position: absolute;
+	        left: 0;
+	        top: 0;
+	        background: #eee;
+	        overflow: hidden;
+	        z-index: 999;
+        }
+        .popup-bigic .loading-bigic {
+	        position: absolute;
+	        left: 50%;
+	        top: 50%;
+	        width: 24px;
+	        height: 24px;
+	        margin-left: -12px;
+	        margin-top: -12px;
+        }
+        .popup-bigic .img-bigic {
+	        position: absolute;
+        }
+        .option-bigic {
+	        position: absolute;
+	        right: 20px;
+	        top: 20px;
+	        z-index: 1;
+        }
+        .option-bigic span {
+	        display: inline-block;
+	        width: 40px;
+	        height: 40px;
+	        margin-right: 20px;
+	        text-indent: -999px;
+	        overflow: hidden;
+	        cursor: pointer;
+	        border-radius: 5px;
+	        background-image: url(../Images/icons.png);
+	        background-repeat: no-repeat;
+	        background-color: #fff;
+	        opacity: .5;
+        }
+        .option-bigic span:hover {
+	        opacity: 1;
+        }
+        .option-bigic span.change-bigic {
+	        display: none;
+	        background-position: -52px 3px;
+        }
+        .option-bigic span.max-bigic {
+	        display: none;
+	        background-position: -119px 3px;
+        }
+        .option-bigic span.close-bigic {
+	        background-position: 8px 8px;
         }
     </style>
 </asp:Content>

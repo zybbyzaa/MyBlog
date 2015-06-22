@@ -10,5 +10,5 @@ public partial class Pages_Manage_index : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Title = "首页";
-    }
+    }   
 }

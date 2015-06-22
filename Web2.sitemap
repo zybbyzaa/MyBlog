@@ -7,7 +7,11 @@
             <siteMapNode url="~/Pages/Account/DetailInfo.aspx" title="个人信息" />
             <siteMapNode url="~/Pages/Account/ChangeInfo.aspx" title="信息修改" />
         </siteMapNode>
-        <siteMapNode title="文章管理"></siteMapNode>
+        <siteMapNode title="文章管理">
+            <siteMapNode url="~/Pages/Manage/ArticleList.aspx" title="文章列表" />
+            <siteMapNode url="~/Pages/Manage/AddArticle.aspx" title="新建文章" />
+            <siteMapNode url="~/Pages/Manage/DetailArticle.aspx" title="文章详细" />
+        </siteMapNode>
         <siteMapNode title="相册管理">
             <siteMapNode url="~/Pages/Manage/PhotoList.aspx" title="查看相册" />
             <siteMapNode url="~/Pages/Manage/UploadPhoto.aspx" title="上传图片" />
