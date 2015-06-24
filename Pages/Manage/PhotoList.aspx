@@ -17,14 +17,10 @@
         <h3 style="margin-top:15px;">查看相片</h3>
         <hr style="margin-top:15px;" />
         <div>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
                 ConnectionString="<%$ ConnectionStrings:BlogConString %>" 
-                DeleteCommand="DELETE FROM [photo] WHERE [id] = @id" 
                 SelectCommand="SELECT * FROM [photo]" 
                 UpdateCommand="UPDATE [photo] SET [description] = @description WHERE [id] = @id">
-                <DeleteParameters>
-                    <asp:Parameter Name="id" Type="Int32" />
-                </DeleteParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="description" Type="String" />
                     <asp:Parameter Name="id" Type="Int32" />
@@ -32,7 +28,7 @@
             </asp:SqlDataSource>
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" 
                 DataSourceID="SqlDataSource1" AllowPaging="True" DataKeyNames="id"
-                OnRowDataBound="GridView1_RowDataBound" PageSize="10" >
+                OnRowDataBound="GridView1_RowDataBound" OnRowCommand="GridView1_RowCommand">
                 <Columns>                   
                     <asp:BoundField DataField="id" HeaderText="图片id" ReadOnly="true" >
                     <ItemStyle HorizontalAlign="Center" Width="100px" />
@@ -46,14 +42,19 @@
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="160px" />
                     </asp:TemplateField> 
-                    <asp:CommandField ShowDeleteButton="True" HeaderText="删除">
-                    <ItemStyle HorizontalAlign="Center" Width="50px" />
-                    </asp:CommandField>
+                    <asp:TemplateField HeaderText="删除" ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandArgument='<%#Eval("id")+","+Eval("photoUrl") %>'
+                                CommandName="Del" Text="删除" OnClientClick='return confirm("你真的要删除当前相片吗？");'></asp:LinkButton>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="50px" />
+                    </asp:TemplateField>
                     <asp:CommandField ShowEditButton="True"  HeaderText="编辑">
                     <ItemStyle HorizontalAlign="Center" Width="50px" />
                     </asp:CommandField>
                 </Columns>
-            </asp:GridView>       
+            </asp:GridView> 
+            <asp:Label ID="lblInfo" runat="server" Text="" ForeColor="Red"></asp:Label>
         </div>
     </div>
 </asp:Content>

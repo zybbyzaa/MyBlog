@@ -107,7 +107,7 @@
             <ItemTemplate>
             <div class="grid">
                 <div class="imgholder">
-                    <img src='/MyBlog/<%# Eval("photoUrl") %>'>
+                    <img src='/MyBlog/<%# Eval("photoUrl") %>' class="photo">
                 </div>
                 <hr />
                 <p><%# Eval("description") %></p>
@@ -115,5 +115,13 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="ContentPlaceHolder4" Runat="Server">
+    <script>
+        $(function () {
+            //设置图片弹出
+            $('.photo').bigic();
+        });
+    </script>
 </asp:Content>
 

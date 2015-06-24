@@ -18,7 +18,8 @@
 <asp:SiteMapPath runat="server" PathSeparator=">>" SkinId="adminSitemap" Font-Size="16px">           
 </asp:SiteMapPath>
 <asp:LoginStatus runat="server" ForeColor="White" LoginText="[登录]" LogoutText="[注销]"/>
-<asp:Login runat="server">
+<asp:LoginStatus skinID="frontStatus" runat="server" LogoutText="退出登录" ForeColor="#999999"/>
+<asp:Login runat="server" SkinID="BackLogin">
     <LayoutTemplate>
         <table style="width:100%">
             <tr>

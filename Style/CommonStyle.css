@@ -134,14 +134,6 @@ ol,ul{
 }
 .btn:hover {
   opacity: .5;
-}
-.mask {    
-   position: absolute; 
-   top: 0px; 
-   filter: alpha(opacity=60); 
-   background-color: #777;  
-   z-index: 1002; left: 0px;  
-   opacity:0.5; -moz-opacity:0.5;  
 }  
 .close
 {
@@ -176,4 +168,23 @@ ol,ul{
       cursor: pointer;
       background: 0 0;
       border: 0;
-
+}
+.hidden
+{
+    display: none;
+}
+.clearfix
+{
+    display: block;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    zoom: 1;
+}
+.clearfix:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: '.';
+}

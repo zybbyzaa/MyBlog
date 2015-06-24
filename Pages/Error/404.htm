@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>404页面</title>
+    <style type="text/css">
+        body
+        {
+            margin: 0;
+            padding: 0;
+            background-color: #3b6ea5;
+            color: White;
+            text-align: center;
+        }
+        #main
+        {
+            width: 600px;
+            margin: 100px auto;
+        }
+        h1
+        {
+            font-size: 60px;   
+        }
+        p
+        {
+            font-size: 24px;
+        }
+        a,a:hover
+        {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: White;
+        }
+    </style>
+    <script type="text/javascript">
+        function delayURL(url) {
+            var delay = document.getElementById("time").innerHTML; //取到id="time"的对象，.innerHTML取到对象的值
+            if (delay > 0) {
+                delay--;
+                document.getElementById("time").innerHTML = delay;
+            } else {
+                window.top.location.href = url; //跳转到URL
+            }
+            setTimeout("delayURL('" + url + "')", 1000);    //delayURL() 就是每间隔1000毫秒 调用delayURL(url);
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <h1>404</h1>
+        <p>
+            找不到当前页面<br />
+            <span id="time">5</span>秒钟后自动跳转，如果不跳转，请点击下面链接<br />
+            <a href="/MyBlog/">[首页]</a>
+        </p>
+    </div>
+    <script type="text/javascript">
+        delayURL("/MyBlog/");
+    </script>
+</body>
+</html>

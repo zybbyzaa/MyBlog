@@ -71,7 +71,4 @@ public partial class Pages_Manage_UploadPhoto : System.Web.UI.Page
             }
         }
     }
-    public void savePhoto()
-    {
-    }
 }

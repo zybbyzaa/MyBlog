@@ -21,7 +21,9 @@
         #login
         {
             width: 500px;
-            margin: 60px 530px;
+            height: 160px;
+            margin-top: 60px;
+            margin-left: 530px;
         }
         .style1
         {
@@ -46,8 +48,9 @@
         <div id="logo">
         </div>
         <div id="login">
-            <asp:Login ID="Login" runat="server" DestinationPageUrl="index.aspx">
-            </asp:Login>          
+            <asp:Label ID="info" runat="server" Text="" ForeColor="Red"></asp:Label>  
+            <asp:Login ID="Login" runat="server" DestinationPageUrl="index.aspx" SkinID="BackLogin">
+            </asp:Login>       
         </div>
     </form>
     <script src="/MyBlog/Script/jquery-1.11.2.min.js" type="text/javascript"></script> 

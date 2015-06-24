@@ -79,10 +79,10 @@
     </form>
     <script src="/MyBlog/Script/jquery-1.11.2.min.js" type="text/javascript"></script>  
     <script type="text/javascript">
-        function tap_click(i) {
-            $("#tab li").removeClass('on').eq(i).addClass('on');
-            $("#tabcon > div").hide().eq(i).show();
-        }
+//        function tap_click(i) {
+//            $("#tab li").removeClass('on').eq(i).addClass('on');
+//            $("#tabcon > div").hide().eq(i).show();
+//        }
         function clock() {
             var time = new Date();
             $("#clock").text(time);
@@ -98,9 +98,9 @@
                     $(this).next().fadeToggle(500);
                 });
             });
-            $("#tab li").each(function (i) {
-                $(this).click(function () { tap_click(i); }).hover(function () { $(this).addClass('hover'); }, function (event) { $(this).removeClass('hover'); });
-            });
+//            $("#tab li").each(function (i) {
+//                $(this).click(function () { tap_click(i); }).hover(function () { $(this).addClass('hover'); }, function (event) { $(this).removeClass('hover'); });
+//            });
         })
     </script> 
 </body>

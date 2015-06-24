@@ -6,5 +6,9 @@
         <siteMapNode url="~/Pages/talk.aspx" title="留言板"  description="a gustbook" />
         <siteMapNode url="~/Pages/about.aspx" title="关于"  description="about my website" />
         <siteMapNode url="~/Pages/details.aspx" title="文章详细"  description="" />
+        <siteMapNode url="~/Pages/changePwd.aspx" title="密码修改"  description="change password" />
+        <siteMapNode url="~/Pages/personalInfo.aspx" title="个人中心"  description="user info manage" />
+        <siteMapNode url="~/Pages/register.aspx" title="注册"  description="register user" />
+        <siteMapNode url="~/Pages/changeHeadIco.aspx" title="头像修改"  description="change head ico" />
     </siteMapNode>
 </siteMap>

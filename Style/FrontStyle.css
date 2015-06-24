@@ -35,6 +35,47 @@
 {
     color: #e15782;
 }
+#ico
+{
+    width:60px;
+    height:60px;
+    position: absolute;
+    top: 16px;
+    right: 30px;
+    border-radius: 50%;
+    overflow:hidden;
+    cursor: pointer;
+}
+#ico .mask {
+    background: rgba(0,0,0,.5);
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+}
+#ico p
+{
+    line-height: 28px;
+    padding: 16px 0;
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+    margin:0;
+}
+#login-link
+{
+    color: #666;
+}
+#login-link:hover
+{
+    color: #00A1D6;
+}
 #banner_top
 {
     margin: auto;
@@ -91,4 +132,121 @@
   position: fixed;
   right: 50px;
   bottom: 15px;
+}
+/*
+   对话气泡
+   用法：使用.speech-bubble和.speech-bubble-DIRECTION类
+   <div class="speech-bubble speech-bubble-top">Hi there</div>
+*/
+.speech-bubble {
+  position: absolute;
+  background-color: #fff;
+  width: 200px;
+  color: #999;
+  border-radius: 10px;
+  font-family: sans-serif;
+  top:100px;
+  right:5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  padding:10px;
+}
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+}
+/* 箭头的位置 */
+.speech-bubble-top:after {
+  border-bottom-color: #fff;
+  bottom: 100%;
+  right: 40px;
+}
+.speech-bubble-right:after {
+  border-left-color: #fff;
+  left: 100%;
+  top: 50%;
+  margin-top: -15px;  
+}
+.speech-bubble-bottom:after {
+  border-top-color: #fff;
+  top: 100%;
+  left: 50%;
+  margin-left: -15px; 
+}
+.speech-bubble-left:after {
+  border-right-color: #fff;
+  top: 50%;
+  right: 100%;
+  margin-top: -15px;  
+}
+.speech-bubble span
+{
+    color: #333;
+}
+.speech-bubble > a
+{
+    float: right;
+}
+.a
+{
+    color: #999;
+    height: auto;
+    border-top: 1px dashed #ddd;
+    margin: 8px 0 0;
+    padding: 12px 0 0;
+    text-align: center;
+}
+.a a
+{
+    color: #999;
+}
+#loginBox
+{
+    position: absolute;
+    top: 150px;
+    left: -185px;
+    width:330px;
+    height: 160px;
+    margin-right: 0px;
+    margin-left: -165px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 12px;
+    padding:10px;
+    color: #45484d;
+    text-align: center;
+}
+#loginBox h3
+{
+    font-size: 20px;
+}
+#loginBox input
+{
+    display: inline-block;
+    margin: 5px 0;
+    height: 22px;
+    width: 188px
+}
+#loginBox hr
+{
+    margin: 20px 0;
+}
+#loginBox label
+{
+    display: inline-block;
+    width: 90px;
+    }
+#loginBox input[type=submit]
+{
+    cursor: pointer;
+    margin: 5px 0 5px 30px;
+    width: 80%;
+    height: 32px;
+    line-height: 32px;
+    background: #1398e2;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
 }

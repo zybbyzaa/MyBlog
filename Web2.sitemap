@@ -2,10 +2,9 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="~/Pages/Manage/index.aspx" title="首页"  description="Home Page">
         <siteMapNode title="账户管理">
-            <siteMapNode url="~/Pages/Account/AccountList.aspx" title="账户列表" />
-            <siteMapNode url="~/Pages/Account/AddAccount.aspx" title="新建账户" />
-            <siteMapNode url="~/Pages/Account/DetailInfo.aspx" title="个人信息" />
-            <siteMapNode url="~/Pages/Account/ChangeInfo.aspx" title="信息修改" />
+            <siteMapNode url="~/Pages/Manage/AccountList.aspx" title="账户列表" />
+            <siteMapNode url="~/Pages/Manage/AddAccount.aspx" title="新建账户" />
+            <siteMapNode url="~/Pages/Manage/ResetPwd.aspx" title="密码重置" />
         </siteMapNode>
         <siteMapNode title="文章管理">
             <siteMapNode url="~/Pages/Manage/ArticleList.aspx" title="文章列表" />
